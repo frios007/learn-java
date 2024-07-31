@@ -142,26 +142,95 @@ const tiempoParaJubilar = function (nacimiento, nombre){
 console.log(tiempoParaJubilar(1968,'Pepe'));
 console.log(tiempoParaJubilar(2000,'Fabio'));
 
-*/
 
-
-
-
-const calcAverage = (score1, score2, score3) => {
-   return (score1 + score2 + score3) / 3;
-}
+========= SINTAXIS CORRECTA DE ARROW FUNCTIONS: ============
+const calcAverage = (a, b, c) => (a + b + c) / 3;
 
 const scoreDolphins = Math.round(calcAverage(44,23,71));
 const scoreKoalas = Math.round(calcAverage(65, 54, 49));
 
 function checkWinner(avgDolphins, avgKoalas){
-    if(avgDolphins>= avgKoalas*2){
+    if  (avgDolphins >= avgKoalas * 2){
         console.log(`Dolphins win ${avgDolphins} vs ${avgKoalas}`)
-    }else if(avgKoalas >= avgDolphins*2){
+        } else if(avgKoalas >= avgDolphins * 2){
         console.log(`Koalas win ${avgDolphins} vs ${avgKoalas}`)
-    }else{
+        } else{
         console.log('no team wins...')
     }
 }
 
 checkWinner(scoreDolphins, scoreKoalas);
+checkWinner(600, 300);
+console.log(scoreDolphins, scoreKoalas);
+
+*/
+
+
+/* 
+================ INTRODUCCION A ARRAYS =============
+
+
+// Forma 1
+const amigos = ['Fabio', 'Jose', 'Pablo'];
+console.log(amigos);
+
+//Forma 2: muy grafica e intuitiva
+const fechas = new Array(1999, 2000, 2001, 2003);
+console.log(fechas);
+
+console.log(amigos[0]);
+console.log(amigos[2]);
+
+console.log(amigos.length);
+console.log(fechas[fechas.length - 1]);
+
+amigos[2] = 'Pedri';
+console.log(amigos);
+
+const yo = ['Fabio', 'Rios', 2024 - 2000, 'ingeniero', amigos];
+console.log(yo);
+
+
+const calcEdad = bd => 2024 - bd;
+
+const edad = console.log(calcEdad(fechas[0]));
+const edad2 = console.log(calcEdad(fechas[1]));
+const edad3 = console.log(calcEdad(fechas[fechas.length -1]));
+
+const edades= [calcEdad(fechas[0]), calcEdad(fechas[1]), calcEdad(fechas[fechas.length-1])];
+console.log(edades);
+*/
+
+// =============== METODOS DE ARRAY ========================
+
+const amigos = ['Fabio', 'Jose', 'Pablo'];
+//Añadir Elementos
+const newLenght = amigos.push('Victor'); // Metodo push agrega un valor al incio, tambien devuelve el nuevo valor del tamaño del array
+console.log(amigos);
+console.log(newLenght);
+
+amigos.unshift('Juan'); // Metodo unshift agrega un valor al inicio del array, tambien devuelve el nuevo tamaño
+console.log(amigos); 
+
+//Remover Elementos
+amigos.pop(); // descarta el ultimo elemento que se encuentra en el array
+amigos.pop(); // tambien retorna el valor del elemento que descarto
+console.log(amigos);
+
+amigos.shift(); // descarta el primer valor del array, tambien puede devolver el valor de lo que descarto
+console.log(amigos);
+
+//Saber la posicion de un elemento en el arrayy
+console.log(amigos.indexOf('Fabio')); // devuelve el indice numerico 
+console.log(amigos.indexOf('Bob')); // si no lo encuentra devuelve -1
+
+//Saber si el array contiene un elemento: Devolver un boolean
+console.log(amigos.includes('Fabio')); // Sensitivo a las mayusculas!
+console.log(amigos.includes('carmen'));
+
+//Uso practico con condicionales
+if(amigos.includes('Juan')){
+    console.log("Fabio es tu amigo");
+}else{
+    console.log('No conoces a Fabio');
+}
