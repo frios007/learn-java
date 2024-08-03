@@ -201,11 +201,13 @@ const edades= [calcEdad(fechas[0]), calcEdad(fechas[1]), calcEdad(fechas[fechas.
 console.log(edades);
 */
 
+
 // =============== METODOS DE ARRAY ========================
 
+/* 
 const amigos = ['Fabio', 'Jose', 'Pablo'];
 //Añadir Elementos
-const newLenght = amigos.push('Victor'); // Metodo push agrega un valor al incio, tambien devuelve el nuevo valor del tamaño del array
+const newLenght = amigos.push('Victor'); // Metodo push agrega un valor al final, tambien devuelve el nuevo valor del tamaño del array
 console.log(amigos);
 console.log(newLenght);
 
@@ -234,3 +236,138 @@ if(amigos.includes('Juan')){
 }else{
     console.log('No conoces a Fabio');
 }
+
+*/
+
+
+/*
+=================== EJERCICIO CON ARRAY Y FUNCIONES ================
+function calcPropina(cuenta) {
+    // Alternativa era usar
+    // return cuenta<= 300 && cuenta>=50 ? cuenta * 0.15 : cuenta * 0.20;
+    //Lo que se entiende como que si la cuenta esta entre 300 y 50, se retorna el 15%
+    // de lo contrario, expresado con dos puntos en la sintaxis, se retorna el 20%
+ if(cuenta >=50 && cuenta <= 300){
+    return cuenta * 0.15;
+ }else{
+    return cuenta * 0.2;
+ }
+}
+
+
+let bills = [125, 555, 44];
+let tips = [calcPropina(bills[0]), calcPropina(bills[1]), calcPropina([2])];
+let totals = [(bills[0] + tips[0]), (bills[1] + tips[1]), (bills[2] + tips[2])];
+console.log(`estos son los resultados:
+    Cuentas: ${bills}
+    Propinas: ${tips}
+    Totales: ${totals}`);
+
+*/
+
+
+/*
+=================== INTRODUCCION A OBJETOS =================
+        DOT y BRACKET notation para acceder a objetos
+
+
+let fabio = {
+    primerNombre: 'Fabio',
+    apellido: 'Rios',
+    edad: 2000,
+    trabajo: 'ingeniero',
+    amigos: ['Juan', 'Mateo', 'Lucas']
+}
+
+//DOT
+console.log(fabio.primerNombre);
+//BRACKET
+console.log(fabio['primerNombre']);
+
+const nameKey = 'Nombre';
+const lastKey = 'apellido';
+console.log(fabio['primer' + nameKey], fabio[lastKey]);
+
+// let busqueda = prompt('elige que deseas ver: primerNombre, apellido, edad, trabajo o amigos');
+
+// if(fabio[busqueda]){
+//     console.log(fabio[busqueda]);
+// }else{
+//     console.log('Malos datos');
+// }
+
+fabio.pais = 'Nicaragua';
+fabio['X'] = 'alrios77';
+console.log(fabio);
+
+console.log(fabio.primerNombre + ' tiene '+ fabio.amigos.length + ' amigos, y su mejor amigo se llama '+ fabio.amigos[0]);
+
+*/
+
+
+
+/*
+=================== AVANCES EN OBJETOS =================
+
+// Resulta que los objetos incluso pueden albergar funciones!! dentro de ellos, y podran ser invocadas primero llamando al objeto y luego corriendo la funcion segun los parametros y configuracion que tenga.
+
+let fabio = {
+    primerNombre: 'Fabio',
+    apellido: 'Rios',
+    nacimiento: 2000,
+    trabajo: 'ingeniero',
+    amigos: ['Juan', 'Mateo', 'Lucas'],
+    licencia: false,
+
+    // Forma 1
+    // calcAge: function(){
+    //     return 2024 - this.edad;
+    // }
+
+    //forma 2
+    calcAge: function(){
+        this.edad = 2024 - this.nacimiento;
+        return this.edad;
+    },
+    
+    resumen: function(){
+        return `${this.primerNombre} es un ${this.trabajo} de ${this.calcAge()} años y ${this.licencia ? 'tiene licencia de conducir' : 'no tiene licencia de conducir'}`;
+    }
+}
+
+// console.log(fabio.calcAge());
+// console.log(fabio.edad);
+console.log(fabio['resumen']());
+
+
+let mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height ** 2);
+        return this.bmi;
+    }
+
+    }
+
+let john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height ** 2);
+        return this.bmi;
+    }
+
+    }
+
+    if(mark['calcBMI']() > john.calcBMI()) {
+        console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})`);
+    } else{
+        console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`);
+    }
+
+*/
