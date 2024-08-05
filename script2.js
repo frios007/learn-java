@@ -500,10 +500,10 @@ console.log(
 
 const calcAvrg = function (arr) {
   let sum = 0;
-  for (let i = 0; i < totales.length; i++) {
-    sum = sum + totales[i];
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
   }
-  return sum / totales.length;
+  return sum / arr.length;
 };
 
 console.log(`\nEl promedio de las cuentas totales es: ${calcAvrg(totales)}`);
