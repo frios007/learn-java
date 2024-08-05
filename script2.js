@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 // Ctrl + } = comentarios
-// modo estricto nos salavara de dejar bugs no deseados empezando desde 
+// modo estricto nos salavara de dejar bugs no deseados empezando desde
 // olvidar una letra hasta palabras reservadas
 
 /*
@@ -11,16 +11,14 @@ if(aproboExamen) tieneLicenciaDeConducir = true;
 if(tieneLicenciaDeConducir) console.log("a manejar");
 */
 
-
 // const interface ='audio';
 // const private = 'lsad2';
 // const if = 'if';
 
-
 // *****************************************************************************************
 
 // funciones: son fragmentos de codigo que podemos reutilizar
- 
+
 /*
 function logger(){
     console.log("Me llamo Fabio");
@@ -42,7 +40,6 @@ logger();
 
 // const jugoNaranjaManzana = procesaFruta(7,5);
 // console.log(jugoNaranjaManzana);
-
 
 /*
 
@@ -69,7 +66,6 @@ console.log(edad, edad2);
 
 */
 
-
 /*
 ======================== ARROW FUNCTION ========================= 
 
@@ -94,7 +90,6 @@ console.log(anos_jubilacion(1972, 'Modesto'));
 
 */
 
-
 /* 
 ======================== FUNCION DENTRO DE OTRA FUNCION ========================= 
 de forma autoexplicativa como sugiere el titulo, esta forma de invocar funciones, es simplemente
@@ -115,8 +110,6 @@ function procesaFruta(manzanas, naranjas){
 console.log(procesaFruta(4,6));
 
 */
-
-
 
 /* 
 ================== REVISION DE FUNCIONES ===============
@@ -165,7 +158,6 @@ console.log(scoreDolphins, scoreKoalas);
 
 */
 
-
 /* 
 ================ INTRODUCCION A ARRAYS =============
 
@@ -200,7 +192,6 @@ const edad3 = console.log(calcEdad(fechas[fechas.length -1]));
 const edades= [calcEdad(fechas[0]), calcEdad(fechas[1]), calcEdad(fechas[fechas.length-1])];
 console.log(edades);
 */
-
 
 // =============== METODOS DE ARRAY ========================
 
@@ -239,7 +230,6 @@ if(amigos.includes('Juan')){
 
 */
 
-
 /*
 =================== EJERCICIO CON ARRAY Y FUNCIONES ================
 function calcPropina(cuenta) {
@@ -264,7 +254,6 @@ console.log(`estos son los resultados:
     Totales: ${totals}`);
 
 */
-
 
 /*
 =================== INTRODUCCION A OBJETOS =================
@@ -303,8 +292,6 @@ console.log(fabio);
 console.log(fabio.primerNombre + ' tiene '+ fabio.amigos.length + ' amigos, y su mejor amigo se llama '+ fabio.amigos[0]);
 
 */
-
-
 
 /*
 =================== AVANCES EN OBJETOS =================
@@ -371,3 +358,152 @@ let john = {
     }
 
 */
+
+/*
+====================== INTRODUCCION A CICLOS ====================
+for contiene 3 partes:
+1. Contador: Cifra numerica donde inciaria el ciclo
+2. Condicion Logica: donde le indicamos la condicion donde seguira corriendo mientras sea TRUE
+cuando alcance un valor FALSE, el ciclo para.
+3. Incremento/Decremento: apoya a la logica de la condicion para que se cumpla.
+
+Ciclo para levantar pesas:
+for(let rep = 1; rep <= 10; rep++){
+    console.log(`Haciendo repeticion ${rep}`);
+    }
+
+
+const fabioArray = [
+  "Fabio",
+  "Rios",
+  2024 - 2000,
+  "Ingeniero",
+  ["Juan", "Mateo", "Lucas"],
+  true,
+];
+
+const tipos = [];
+
+for (let i = 0; i < fabioArray.length; i++) {
+  console.log(fabioArray[i], typeof fabioArray[i]);
+  //tipos[i] = typeof fabioArray[i];
+  tipos.push(typeof fabioArray[i]);
+}
+
+console.log(tipos);
+console.log("--------------------------------------------------------");
+
+const fechas = [2000, 1972, 1977, 2002, 2007];
+const cumples = [];
+
+for (let i = 0; i < fechas.length; i++) {
+  cumples.push(2024 - fechas[i]);
+}
+console.log(cumples);
+console.log(
+  "================= USO DE CONTINUE Y BREAK EN CICLO FOR ======================"
+);
+
+// ================= USO DE CONTINUE Y BREAK EN CICLO FOR ======================
+
+//CONTINUE
+console.log("CONTINUE:");
+for (let i = 0; i < fabioArray.length; i++) {
+  if (typeof fabioArray[i] !== "string") continue;
+
+  console.log(fabioArray[i]);
+}
+
+//BREAK
+console.log("BREAK:");
+for (let i = 0; i < fabioArray.length; i++) {
+  if (typeof fabioArray[i] === "number") break;
+  console.log(fabioArray[i]);
+}
+
+*/
+
+/* 
+======================= FINALIZACION CICLOS FOR =================
+Ciclar de atras hacia adelante
+
+
+
+const fabio = [
+  "Fabio",
+  "Rios",
+  2024 - 2000,
+  "Ingeniero",
+  ["Juan", "Mateo", "Lucas"],
+  true,
+];
+
+for (let x = fabio.length - 1; x >= 0; x--) {
+  console.log(fabio[x]);
+}
+
+for (let i = 1; i < 4; i++) {
+  console.log(`\n \n \n-----Set ${i} de push-------`);
+
+  for (let j = 1; j < 6; j++) {
+    console.log(`  *Rep ${j} de set ${i}`);
+
+    for (let k = 1; k < 2; k++) {
+      console.log(`     ${k} Descanso 30s set ${i} de ejercicio ${j}`);
+    }
+  }
+}
+
+*/
+
+/* ================== INTRODUCCION A WHILE LOOP ================ 
+let rep = 1;
+while (rep <= 10) {
+  console.log(`WHILE: Haciendo repeticion ${rep}`);
+  rep++;
+}
+console.log("\n");
+
+let dado = Math.trunc(Math.random() * 6 + 1);
+console.log(dado);
+
+while (dado !== 6) {
+  console.log(`rodó numero ${dado}`);
+  dado = Math.trunc(Math.random() * 6 + 1);
+  if (dado === 6) {
+    console.log("rodó 6, el ciclo terminó...");
+  }
+}
+
+*/
+
+const cuentas = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const propinas = [];
+const totales = [];
+
+const calcPropina = function (cuenta) {
+  return cuenta >= 50 && cuenta <= 300 ? cuenta * 0.15 : cuenta * 0.2;
+};
+
+for (let i = 0; i < cuentas.length; i++) {
+  propinas.push(calcPropina(cuentas[i]));
+}
+
+for (let j = 0; j < propinas.length; j++) {
+  totales.push(cuentas[j] + propinas[j]);
+}
+
+console.log(
+  `cuentas: ${cuentas}  \n \npropinas: ${propinas}  \n \ntotales: ${totales}`
+);
+
+const calcAvrg = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < totales.length; i++) {
+    sum = sum + totales[i];
+  }
+  return sum / totales.length;
+};
+
+console.log(`\nEl promedio de las cuentas totales es: ${calcAvrg(totales)}`);
