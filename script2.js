@@ -1,4 +1,3 @@
-"use strict";
 // Ctrl + } = comentarios
 // modo estricto nos salavara de dejar bugs no deseados empezando desde
 // olvidar una letra hasta palabras reservadas
@@ -477,6 +476,7 @@ while (dado !== 6) {
 
 */
 
+/* ======================== EJERCICIO DE FOR LOOP ======================
 const cuentas = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 
 const propinas = [];
@@ -488,10 +488,7 @@ const calcPropina = function (cuenta) {
 
 for (let i = 0; i < cuentas.length; i++) {
   propinas.push(calcPropina(cuentas[i]));
-}
-
-for (let j = 0; j < propinas.length; j++) {
-  totales.push(cuentas[j] + propinas[j]);
+  totales.push(cuentas[i] + propinas[i]);
 }
 
 console.log(
@@ -501,9 +498,156 @@ console.log(
 const calcAvrg = function (arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
-    sum = sum + arr[i];
+    //sum = sum + arr[i];
+    sum += arr[i];
   }
   return sum / arr.length;
 };
 
 console.log(`\nEl promedio de las cuentas totales es: ${calcAvrg(totales)}`);
+*/
+
+// const temperaturas = [
+//   1,
+//   5,
+//   -6,
+//   -8,
+//   -0.5,
+//   2,
+//   12,
+//   244,
+//   542,
+//   214,
+//   65,
+//   "error",
+//   "value",
+//   23,
+//   1,
+//   0,
+// ];
+
+// const temperaturas2 = [
+//   3,
+//   5,
+//   2,
+//   1000,
+//   21412,
+//   "pito",
+//   2421,
+//   "asd",
+//   {
+//     fabio: "nombre",
+//     edad: 22,
+//     calculon: function () {
+//       console.log("nada");
+//     },
+//   },
+//   414512,
+//   0.23124,
+//   -0.22311,
+//   -241412,
+// ];
+
+// const calc = function (temps) {
+//   let maximaTemp = temps[0];
+//   let minimaTemp = temps[0];
+
+//   for (let i = 0; i < temps.length; i++) {
+//     const tempActual = temps[i];
+//     if (typeof temps[i] !== "number") continue;
+//     if (tempActual > maximaTemp) maximaTemp = tempActual;
+//     if (tempActual < minimaTemp) minimaTemp = tempActual;
+//   }
+//   console.log(maximaTemp, minimaTemp);
+// };
+
+// calc(temperaturas);
+
+// function calcTemps2(t1, t2) {
+//   const nuevoArray = t1.concat(t2);
+
+//   let maximaTemp = nuevoArray[0];
+//   let minimaTemp = nuevoArray[0];
+
+//   for (let i = 0; i < nuevoArray.length; i++) {
+//     const tempActual = nuevoArray[i];
+//     if (typeof nuevoArray[i] !== "number") continue;
+//     if (tempActual > maximaTemp) maximaTemp = tempActual;
+//     if (tempActual < minimaTemp) minimaTemp = tempActual;
+//   }
+//   console.log(maximaTemp, minimaTemp);
+//   return maximaTemp - minimaTemp;
+// }
+
+// console.log(
+//   `la temperatura maxima y minima, luego la amplitud ${calcTemps2(
+//     temperaturas,
+//     temperaturas2
+//   )}`
+// );
+
+/* ==============INTRODUCCION AL DOM =====================
+                MANUPULACION DEL DOM
+
+document.querySelector(".number").textContent = 13;
+document.querySelector(".score").textContent = 7;
+document.querySelector(".guess").value = 777;
+console.log(document.querySelector(".message"));
+document.querySelector(".message").textContent = "La puta que te parió!";                
+*/
+"use strict";
+
+let score = 20;
+let highscore = 0;
+
+const displayMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
+
+function createRandom() {
+  return Math.trunc(Math.random() * 20) + 1;
+}
+
+console.log(createRandom());
+
+document.querySelector(".check").addEventListener("click", function () {
+  const numberGuess = Number(document.querySelector(".guess").value);
+
+  if (!numberGuess) {
+    displayMessage("Not a number!!!");
+  } else if (numberGuess === createRandom()) {
+    displayMessage("YOU WON BRUV!!!");
+    const body = document.querySelector("body");
+    body.style.backgroundColor = "#60b347";
+    document.querySelector(".number").style.width = "30rem";
+    document.querySelector(".number").textContent = secretNumber;
+
+    if (highscore < score) {
+      highscore = score;
+      document.querySelector(".highscore").textContent = highscore;
+    }
+  } else if (createRandom() !== numberGuess) {
+    if (score > 1) {
+      secretNumber > numberGuess
+        ? displayMessage("Your guess is too Low!")
+        : displayMessage("Your guess is too high!");
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      displayMessage("YOU LOST BRUV");
+      document.querySelector(".score").textContent = "0";
+    }
+  }
+});
+
+document.querySelector(".again").addEventListener("click", function () {
+  let body = document.querySelector("body");
+  body.style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
+  document.querySelector(".number").textContent = "?";
+  score = 20;
+  createRandom();
+  document.querySelector(".score").textContent = score;
+  document.querySelector(".guess").value = "";
+  displayMessage("Start guessing...");
+});
